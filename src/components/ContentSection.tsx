@@ -71,7 +71,7 @@ export default function ContentSection({ categoryName, categoryId, content, onBa
 
           <div className="flex items-center space-x-4">
             <h1 className="text-3xl md:text-4xl font-bold text-white">{categoryName}</h1>
-            {user && (
+            {user?.profile?.is_admin && (
               <button
                 onClick={onAddContent}
                 className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors shadow-lg hover:shadow-blue-500/25"

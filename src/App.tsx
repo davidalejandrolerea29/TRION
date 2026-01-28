@@ -118,7 +118,7 @@ function App() {
   };
 
   const handleAdminAccess = (categoryId?: string) => {
-    if (user) {
+    if (user?.profile?.is_admin) {
       if (categoryId) {
         setPreSelectedCategoryId(categoryId);
       }
@@ -126,7 +126,11 @@ function App() {
       // If coming from a section, close the section view
       setSelectedCategory(null);
     } else {
-      alert('Debes iniciar sesión para acceder al panel.');
+      if (!user) {
+        alert('Debes iniciar sesión para acceder al panel.');
+      } else {
+        alert('No tienes permisos de administrador.');
+      }
     }
   };
 

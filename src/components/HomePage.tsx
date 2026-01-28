@@ -58,15 +58,17 @@ export default function HomePage({ categories, onCategorySelect, user, onAuthSuc
                 >
                   <span>Historial</span>
                 </button>
-                <button
-                  onClick={() => {
-                    setShowUserMenu(false);
-                    onAdminClick();
-                  }}
-                  className="w-full text-left px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700 transition-colors border-b border-slate-700 flex items-center"
-                >
-                  <span>Subir Contenido</span>
-                </button>
+                {user.profile?.is_admin && (
+                  <button
+                    onClick={() => {
+                      setShowUserMenu(false);
+                      onAdminClick();
+                    }}
+                    className="w-full text-left px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-slate-700 transition-colors border-b border-slate-700 flex items-center"
+                  >
+                    <span>Subir Contenido</span>
+                  </button>
+                )}
                 <button
                   onClick={() => {
                     setShowUserMenu(false);
