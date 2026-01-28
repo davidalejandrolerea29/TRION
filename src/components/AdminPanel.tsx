@@ -335,10 +335,11 @@ function FormModal({ type, item, categories, onSave, onClose }: any) {
     setSaving(true);
 
     // Update is_external based on upload mode
-    const dataToSave = {
-      ...formData,
-      is_external: uploadMode === 'url'
-    };
+    const dataToSave = { ...formData };
+
+    if (type !== 'categories') {
+      dataToSave.is_external = uploadMode === 'url';
+    }
 
     await onSave(dataToSave, coverFile, contentFile);
     setSaving(false);

@@ -111,6 +111,7 @@ function App() {
     setShowHistory(false);
     setContent([]);
     setPreSelectedCategoryId(null);
+    loadCategories();
   };
 
   const handleAuthSuccess = () => {
@@ -182,7 +183,7 @@ function App() {
       )}
 
       {selectedCategory && (
-        <div className="fixed inset-0 z-40 bg-slate-900">
+        <div className="fixed inset-0 z-40 bg-slate-900 overflow-y-auto">
           <ContentSection
             categoryName={categories.find((c) => c.slug === selectedCategory)?.name || ''}
             categoryId={categories.find((c) => c.slug === selectedCategory)?.id}
